@@ -237,6 +237,7 @@ const RegisterPage = () => {
         <CardFooter className="text-center text-sm text-gray-500 mt-4">
           Already have an account?{" "}
           <Link to={"/login"} className="text-blue-600 hover:underline">
+          
             Sign in
           </Link>
         </CardFooter>
