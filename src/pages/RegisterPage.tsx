@@ -4,11 +4,10 @@ import { Input } from "@/components/ui/input";
 import { useEffect, useState } from "react";
 import { createUser, sendOTP, verifyOTP } from "@/api/user-api";
 import { toast } from "sonner";
-import {  Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
   const navigate = useNavigate();
- 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -21,6 +20,7 @@ const RegisterPage = () => {
   const [isOtpSent, setIsOtpSent] = useState(false);
   const [isOtpVerified, setIsOtpVerified] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
+  const [loading, setLoading] = useState(false); // Loading state
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -37,6 +37,7 @@ const RegisterPage = () => {
       });
       return;
     }
+    setLoading(true);
     try {
       const result = await sendOTP({ email: formData.email, name: formData.name, useCase: "register", isLogin: false });
       if (result.success) {
@@ -48,6 +49,8 @@ const RegisterPage = () => {
     } catch (error) {
       console.error("Error sending OTP:", error);
       toast.error("Failed to send OTP. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -57,6 +60,7 @@ const RegisterPage = () => {
       setErrors({ otp: "OTP is required" });
       return;
     }
+    setLoading(true);
     try {
       const result = await verifyOTP({ email: formData.email, otp: formData.otp, isBanAllowed: false });
       if (result.success) {
@@ -68,6 +72,8 @@ const RegisterPage = () => {
     } catch (error) {
       console.error("Error verifying OTP:", error);
       toast.error("Failed to verify OTP. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -77,6 +83,7 @@ const RegisterPage = () => {
       setErrors({ confirmPassword: "Passwords do not match" });
       return;
     }
+    setLoading(true);
     try {
       const result = await createUser({
         email: formData.email,
@@ -92,26 +99,26 @@ const RegisterPage = () => {
     } catch (error) {
       console.error("Error registering user:", error);
       toast.error("Failed to register. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
-  const [rediect, setRedirect] = useState(false);
+  const [redirect, setRedirect] = useState(false);
   useEffect(() => {
-    const user = localStorage.getItem('user');
+    const user = localStorage.getItem("user");
     if (user) {
-        setRedirect(true);
+      setRedirect(true);
     }
-}, []);
-  
-  if ( rediect) {
-    navigate("/")
+  }, []);
+
+  if (redirect) {
+    navigate("/");
   }
 
-  
   if (isOtpVerified && isRegistered) {
     navigate("/login");
   }
-  
 
   return (
     <div className="flex items-center justify-center">
@@ -121,7 +128,10 @@ const RegisterPage = () => {
           <p className="text-sm text-gray-600">Create an account to start tracking your trades</p>
         </CardHeader>
         <CardDescription>
-          <form className="space-y-4" onSubmit={isOtpVerified ? handleRegister : isOtpSent ? handleVerifyOtp : handleOtpSent}>
+          <form
+            className="space-y-4"
+            onSubmit={isOtpVerified ? handleRegister : isOtpSent ? handleVerifyOtp : handleOtpSent}
+          >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">
@@ -133,7 +143,7 @@ const RegisterPage = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  disabled={isOtpSent}
+                  disabled={isOtpSent || loading}
                   placeholder="Enter your name"
                   className="mt-1 w-full"
                 />
@@ -149,7 +159,7 @@ const RegisterPage = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  disabled={isOtpSent}
+                  disabled={isOtpSent || loading}
                   placeholder="Enter your email"
                   className="mt-1 w-full"
                 />
@@ -169,6 +179,7 @@ const RegisterPage = () => {
                     name="otp"
                     value={formData.otp}
                     onChange={handleChange}
+                    disabled={loading}
                     placeholder="Enter your OTP"
                     className="mt-1 w-full"
                   />
@@ -189,6 +200,7 @@ const RegisterPage = () => {
                     name="password"
                     value={formData.password}
                     onChange={handleChange}
+                    disabled={loading}
                     placeholder="Create a password"
                     className="mt-1 w-full"
                   />
@@ -204,6 +216,7 @@ const RegisterPage = () => {
                     name="confirmPassword"
                     value={formData.confirmPassword}
                     onChange={handleChange}
+                    disabled={loading}
                     placeholder="Confirm your password"
                     className="mt-1 w-full"
                   />
@@ -214,18 +227,16 @@ const RegisterPage = () => {
 
             <Button
               type="submit"
-              className="w-full bg-blue-500 text-white hover:bg-blue-600 py-2 px-4 rounded-lg"
+              className={`w-full ${loading ? "bg-gray-400" : "bg-blue-500"} text-white hover:bg-blue-600 py-2 px-4 rounded-lg`}
+              disabled={loading}
             >
-              {isOtpVerified ? "Sign Up" : isOtpSent ? "Verify OTP" : "Send OTP"}
+              {loading ? "Processing..." : isOtpVerified ? "Sign Up" : isOtpSent ? "Verify OTP" : "Send OTP"}
             </Button>
-            
           </form>
         </CardDescription>
         <CardFooter className="text-center text-sm text-gray-500 mt-4">
           Already have an account?{" "}
-          <Link to={'/login'}
-                className="text-blue-600 hover:underline"
-          >
+          <Link to={"/login"} className="text-blue-600 hover:underline">
             Sign in
           </Link>
         </CardFooter>
