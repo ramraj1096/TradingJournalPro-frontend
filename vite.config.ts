@@ -10,4 +10,8 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    outDir: "dist", // Ensure the output directory matches Vercel's expectations
+    emptyOutDir: true, // Clears old files in the output directory
+  },
 });
