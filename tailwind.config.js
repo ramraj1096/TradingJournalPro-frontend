@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
 	darkMode: ["class"],
 	content: [
 	  './pages/**/*.{ts,tsx}',
@@ -10,7 +10,7 @@ export default {
 	prefix: "",
 	theme: {
 	  container: {
-		center: true, // Corrected from 'true' (string) to true (boolean)
+		center: true,
 		padding: '2rem',
 		screens: {
 		  '2xl': '1400px'
