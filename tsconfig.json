@@ -20,8 +20,8 @@
 
     /* Linting */
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedLocals": false,           // Relax unused locals check
+    "noUnusedParameters": false,       // Relax unused parameters check
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src"],

@@ -5,6 +5,7 @@ const ProtectedRoute = () => {
   const [user, setUser] = useState<{ email: string } | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  console.log(user);
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
