@@ -221,7 +221,7 @@ const LoginPage = () => {
                 loading ? "bg-blue-300 cursor-not-allowed" : "bg-blue-500"
               }`}
             >
-              {loading ? "Loading..." : (!otpSent ? "Sign In" : "Verify OTP")}
+              {loading ? "Please wait" : (!otpSent ? "Sign In" : "Verify OTP")}
             </Button>
           </form>
         </CardDescription>

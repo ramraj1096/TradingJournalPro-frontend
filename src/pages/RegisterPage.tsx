@@ -230,7 +230,7 @@ const RegisterPage = () => {
               className={`w-full ${loading ? "bg-gray-400" : "bg-blue-500"} text-white hover:bg-blue-600 py-2 px-4 rounded-lg`}
               disabled={loading}
             >
-              {loading ? "Processing..." : isOtpVerified ? "Sign Up" : isOtpSent ? "Verify OTP" : "Send OTP"}
+              {loading ? "Please wait..." : isOtpVerified ? "Sign Up" : isOtpSent ? "Verify OTP" : "Send OTP"}
             </Button>
           </form>
         </CardDescription>

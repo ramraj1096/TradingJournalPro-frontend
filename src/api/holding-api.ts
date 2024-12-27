@@ -42,7 +42,7 @@ export const addHolding = async (
   } catch (error: any) {
     console.log(error);
     if (error.response) {
-      if (error.response.status === 401) {
+      if (error.response.status === 403) {
         toast.error("Session expired. Please log in again.");
         localStorage.removeItem("user");
         navigate("/login"); // Use the passed navigate function
@@ -120,7 +120,7 @@ export const getAllHoldings = async (
   } catch (error: any) {
     console.log(error);
     if (error.response) {
-      if (error.response.status === 401) {
+      if (error.response.status === 403) {
         toast.error("Session expired. Please log in again.");
         localStorage.removeItem("user");
         navigate("/login"); // Use the passed navigate function
@@ -214,7 +214,7 @@ export const updateAssetPrice = async (
   } catch (error: any) {
     console.error(error);
     if (error.response) {
-      if (error.response.status === 401) {
+      if (error.response.status === 403) {
         toast.error('Session expired. Please log in again.');
         localStorage.removeItem('user');
         navigate('/login');
@@ -299,7 +299,7 @@ export const performSquareoff  = async (
   } catch (error: any) {
     console.error(error);
     if (error.response) {
-      if (error.response.status === 401) {
+      if (error.response.status === 403) {
     
         localStorage.removeItem('user');
         navigate('/login');
@@ -376,7 +376,7 @@ export const getOverview = async (
   } catch (error: any) {
     console.log(error);
     if (error.response) {
-      if (error.response.status === 401) {
+      if (error.response.status === 403) {
         toast.error("Session expired. Please log in again.");
         localStorage.removeItem("user");
         navigate("/login"); // Use the passed navigate function
@@ -466,7 +466,7 @@ export const chartAnalyticsData = async (
   } catch (error: any) {
     console.log(error);
     if (error.response) {
-      if (error.response.status === 401) {
+      if (error.response.status === 403) {
         toast.error("Session expired. Please log in again.");
         localStorage.removeItem("user");
         navigate("/login"); // Use the passed navigate function
