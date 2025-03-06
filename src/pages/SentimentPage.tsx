@@ -80,9 +80,10 @@ const SentimentAnalysis = () => {
           />
           <Button
             onClick={fetchSentiment}
+            disabled={loading}
             className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 px-5 py-2 text-lg rounded-md text-white flex items-center justify-center"
           >
-            {loading ? <Loader className="animate-spin" /> : "Analyze"}
+            {loading ? <Loader className="animate-spin" />  : "Analyze"}
           </Button>
         </div>
       </motion.div>
