@@ -70,6 +70,22 @@ const UsernameMenu = () => {
             User Profile
           </Link>
         </DropdownMenuItem>
+        <DropdownMenuItem>
+          <Link
+            to="/technical-analysis"
+            className="font-bold hover:text-blue-600"
+          >
+            AI Featured Technical Analysis
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <Link
+            to="/sentiment-analysis"
+            className="font-bold hover:text-blue-600"
+          >
+            AI Featured Sentiment Analysis
+          </Link>
+        </DropdownMenuItem>
         <Separator />
         <DropdownMenuItem>
           <Button

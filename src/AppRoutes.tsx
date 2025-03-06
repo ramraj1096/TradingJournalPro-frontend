@@ -14,6 +14,8 @@ import HoldingsAnalyticsPage from "./pages/HoldingsAnalyticsPage";
 import TradesAnalyticsPage from "./pages/TradesAnalyticsPage";
 import JournalAnalyticsPage from "./pages/JournalAnalyticsPage";
 import ProtectedRoute from "./auth/ProtectedRoute";
+import SentimentAnalysis from "./pages/SentimentPage";
+import TechnicalTrendAnalysis from "./pages/TechnicalTrendAnalysis";
 
 
 const AppRoutes = () => {
@@ -68,6 +70,22 @@ const AppRoutes = () => {
         element={
           <Layout >
             <MarketNews />
+          </Layout>
+        }
+      />
+      <Route
+        path="/sentiment-analysis"
+        element={
+          <Layout >
+            <SentimentAnalysis />
+          </Layout>
+        }
+      />
+      <Route
+        path="/technical-analysis"
+        element={
+          <Layout >
+            <TechnicalTrendAnalysis />
           </Layout>
         }
       />

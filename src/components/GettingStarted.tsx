@@ -37,6 +37,15 @@ const GettingStarted = () => {
           <h3 className="text-xl font-semibold text-blue-500">5. Start Journaling</h3>
           <p className="text-gray-700 dark:text-slate-400">Track your trades, log your progress, and learn from your experiences.</p>
         </div>
+
+        <div className="bg-gray-100 p-6 rounded-lg dark:bg-gray-800 shadow-lg">
+  <h3 className="text-xl font-semibold text-blue-500">6. Explore AI Features</h3>
+  <p className="text-gray-700 dark:text-slate-400">
+    Discover AI-powered sentiment and technical trend predictions.
+  </p>
+</div>
+
+
       </div>
     </div>
   </div>
