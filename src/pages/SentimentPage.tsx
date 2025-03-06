@@ -75,7 +75,7 @@ const SentimentAnalysis = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white px-4 sm:px-8 py-6 flex flex-col items-center">
+    <div className="min-h-screen bg-white dark:bg-gray-900 px-4 sm:px-8 py-6 flex flex-col items-center">
       <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
         <h1 className="text-3xl font-semibold mb-6">Market Sentiment Analysis</h1>
         <div className="flex flex-col sm:flex-row items-center gap-4 p-4 rounded-lg shadow-md border w-full max-w-2xl">
@@ -101,7 +101,7 @@ const SentimentAnalysis = () => {
           <div className="space-y-4">
             {data.analysis.map((item, index) => (
               <motion.div key={index} initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: index * 0.05 }}>
-                <Card className="bg-white border rounded-md shadow-sm p-4">
+                <Card className="bg-white dark:bg-gray-900 border rounded-md shadow-sm p-4">
                   <CardContent>
                     <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium block">
                       {item.headline || "View Article"}
