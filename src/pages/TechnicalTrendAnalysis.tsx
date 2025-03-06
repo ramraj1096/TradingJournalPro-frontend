@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Loader } from "lucide-react";
 import { motion } from "framer-motion";
+import { toast } from "sonner";
 
 type TrendType = "Bullish" | "Bearish" | "Neutral";
 
@@ -34,6 +35,7 @@ const TechnicalTrendAnalysis = () => {
       const result = await response.json();
 
       if (result.detail === "Stock data not found") {
+        toast.error("No stock data found")
         setError("Stock data not found. Please enter a valid stock symbol.");
       } else {
         setData(result);

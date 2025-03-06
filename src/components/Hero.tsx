@@ -40,7 +40,7 @@ const Hero = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="border border-blue-600 text-blue-600 font-semibold px-6 py-3 rounded-full shadow-lg"
+                  className="border border-blue-600 bg-white dark:bg-slate-300 text-blue-600 font-semibold px-6 py-3 rounded-full shadow-lg"
                   onClick={() => (window.location.href = "#getting-started")}
                 >
                   Learn More
