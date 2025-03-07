@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { createUser, sendOTP, verifyOTP } from "@/api/user-api";
 import { toast } from "sonner";
 import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -121,6 +122,12 @@ const RegisterPage = () => {
   }
 
   return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+     
+    >
     <div className="flex items-center justify-center">
       <Card className="w-full max-w-lg shadow-xl rounded-xl dark:bg-gray-900 bg-white p-6">
         <CardHeader className="text-center mb-4">
@@ -243,6 +250,7 @@ const RegisterPage = () => {
         </CardFooter>
       </Card>
     </div>
+    </motion.div>
   );
 };
 
