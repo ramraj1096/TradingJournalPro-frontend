@@ -81,7 +81,7 @@ const SentimentAnalysis = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 px-4 sm:px-8 py-6 flex flex-col items-center">
       <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-        <h1 className="text-3xl font-semibold mb-6">Market Sentiment Analysis</h1>
+        <h1 className="text-3xl font-semibold mb-6">📊 AI Featured Market Sentiment Analysis</h1>
         <div className="flex flex-col sm:flex-row items-center gap-4 p-4 rounded-lg shadow-md border w-full max-w-2xl">
           <Input
             className="w-full text-lg px-4 py-2 rounded-md border"

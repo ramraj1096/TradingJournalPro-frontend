@@ -59,7 +59,7 @@ const TechnicalTrendAnalysis = () => {
         transition={{ duration: 0.5 }}
         className="w-full max-w-3xl text-center"
       >
-        <h1 className="text-2xl sm:text-3xl font-semibold mb-6">📊 Technical Trend Analysis</h1>
+        <h1 className="text-2xl sm:text-3xl font-semibold mb-6">📊AI Featured Technical Trend Analysis</h1>
         <div className="flex flex-col sm:flex-row items-center gap-4 bg-white dark:bg-gray-900 p-4 rounded-lg shadow-md border border-gray-200 w-full">
           <Input
             className="w-full bg-white text-gray-900 dark:text-gray-50 dark:bg-gray-900 border border-gray-300 focus:ring-2 focus:ring-blue-500 placeholder-gray-500 px-4 py-2 rounded-md text-lg"
