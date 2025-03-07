@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Loader } from "lucide-react";
 import { motion } from "framer-motion";
+import { toast } from "sonner";
 
 type SentimentType = "Positive" | "Neutral" | "Negative";
 
@@ -47,6 +48,7 @@ const SentimentAnalysis = () => {
         setData(result);
       }
     } catch (error) {
+      toast.error("Something went wrong. Please try again.")
       setError("Something went wrong. Please try again.");
     }
     setLoading(false);
