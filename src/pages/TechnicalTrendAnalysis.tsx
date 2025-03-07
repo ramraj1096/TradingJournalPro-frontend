@@ -44,6 +44,7 @@ const TechnicalTrendAnalysis = () => {
       }
     } catch (error) {
       console.error("Error fetching technical analysis:", error);
+      toast.error("Something went wrong. Please try again.")
       setError("Something went wrong. Please try again.");
     }
     
