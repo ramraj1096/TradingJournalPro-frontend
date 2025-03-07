@@ -16,6 +16,7 @@ import JournalAnalyticsPage from "./pages/JournalAnalyticsPage";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import SentimentAnalysis from "./pages/SentimentPage";
 import TechnicalTrendAnalysis from "./pages/TechnicalTrendAnalysis";
+import AiStrategyCheck from "./pages/AiStrategyCheck";
 
 
 const AppRoutes = () => {
@@ -86,6 +87,14 @@ const AppRoutes = () => {
         element={
           <Layout >
             <TechnicalTrendAnalysis />
+          </Layout>
+        }
+      />
+      <Route
+        path="/strategy-evaluater"
+        element={
+          <Layout >
+            <AiStrategyCheck />
           </Layout>
         }
       />

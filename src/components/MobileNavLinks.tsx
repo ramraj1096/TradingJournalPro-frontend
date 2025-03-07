@@ -58,17 +58,24 @@ const MobileNavLinks = () => {
             User Profile
           </Link>
           <Link
+            to="/technical-analysis"
+            className="flex bg-white dark:bg-black items-center font-bold hover:text-blue-500"
+          >
+            AI Featured Technical Analysis
+          </Link>
+          <Link
             to="/sentiment-analysis"
             className="flex bg-white dark:bg-black items-center font-bold hover:text-blue-500"
           >
             AI Featured Sentiment Analysis
           </Link>
           <Link
-            to="/technical-analysis"
+            to="/strategy-evaluater"
             className="flex bg-white dark:bg-black items-center font-bold hover:text-blue-500"
           >
-            AI Featured Technical Analysis
+            AI-Powered Trading Strategy Evaluator
           </Link>
+          
           <Button
             onClick={logout} // Correct invocation of the logout function
             className="flex items-center px-3 bg-blue-500 font-bold hover:bg-gray-200"

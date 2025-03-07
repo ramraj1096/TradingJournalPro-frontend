@@ -39,11 +39,12 @@ const GettingStarted = () => {
         </div>
 
         <div className="bg-gray-100 p-6 rounded-lg dark:bg-gray-800 shadow-lg">
-  <h3 className="text-xl font-semibold text-blue-500">6. Explore AI Features</h3>
+  <h3 className="text-xl font-semibold text-blue-500">6. Unlock AI-Powered Insights</h3>
   <p className="text-gray-700 dark:text-slate-400">
-    Discover AI-powered sentiment and technical trend predictions.
+    Leverage AI-driven sentiment analysis, trend predictions, and a smart Trading Strategy Evaluator to enhance your decision-making.
   </p>
 </div>
+
 
 
       </div>

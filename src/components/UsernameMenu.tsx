@@ -86,6 +86,14 @@ const UsernameMenu = () => {
             AI Featured Sentiment Analysis
           </Link>
         </DropdownMenuItem>
+        <DropdownMenuItem>
+          <Link
+            to="/strategy-evaluater"
+            className="font-bold hover:text-blue-600"
+          >
+            AI-Powered Trading Strategy Evaluator
+          </Link>
+        </DropdownMenuItem>
         <Separator />
         <DropdownMenuItem>
           <Button

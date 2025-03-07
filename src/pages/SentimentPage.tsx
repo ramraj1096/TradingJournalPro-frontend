@@ -8,6 +8,8 @@ import { motion } from "framer-motion";
 
 type SentimentType = "Positive" | "Neutral" | "Negative";
 
+const API_URI= import.meta.env.VITE_API_BASE_URL_MLMODELS as string;
+
 interface SentimentAnalysisItem {
   headline: string;
   link: string;
@@ -34,7 +36,7 @@ const SentimentAnalysis = () => {
 
     try {
       const response = await fetch(
-        `https://tradingjournalpro-ai.onrender.com/sentiment/${assetName.trim().replace(/\s+/g, "")}`
+        `${API_URI}/sentiment/${assetName.trim().replace(/\s+/g, "")}`
       );
       const result = await response.json();
       console.log(result)
