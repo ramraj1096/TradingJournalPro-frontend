@@ -95,7 +95,7 @@ const SentimentAnalysis = () => {
         </div>
       </motion.div>
 
-      {error && <motion.div className="mt-6 text-red-600">❌ {error}</motion.div>}
+      {error && <motion.div className="mt-6 text-red-600"> {error}</motion.div>}
 
       {data && !error && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }} className="mt-8 w-full max-w-2xl">

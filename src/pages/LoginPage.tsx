@@ -1,6 +1,11 @@
 import { loginUser } from "@/api/user-api";
 import { Button } from "@/components/ui/button";
-import { Card, CardDescription, CardFooter, CardHeader } from "@/components/ui/card";
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -16,7 +21,10 @@ const LoginPage = () => {
   const handleChange = (e: any) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    setErrors((prev) => ({ ...prev, [name]: value.trim() ? "" : `${name} is required` }));
+    setErrors((prev) => ({
+      ...prev,
+      [name]: value.trim() ? "" : `${name} is required`,
+    }));
   };
 
   const handleLogin = async (e: any) => {
@@ -79,7 +87,10 @@ const LoginPage = () => {
             onSubmit={handleLogin}
           >
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Email Address
               </label>
               <motion.div whileFocus={{ scale: 1.02 }}>
@@ -95,10 +106,15 @@ const LoginPage = () => {
                   required
                 />
               </motion.div>
-              {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+              {errors.email && (
+                <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+              )}
             </div>
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Password
               </label>
               <motion.div whileFocus={{ scale: 1.02 }}>
@@ -114,7 +130,9 @@ const LoginPage = () => {
                   required
                 />
               </motion.div>
-              {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password}</p>}
+              {errors.password && (
+                <p className="text-red-500 text-xs mt-1">{errors.password}</p>
+              )}
             </div>
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
               <Button
@@ -138,7 +156,7 @@ const LoginPage = () => {
           >
             Don’t have an account?{" "}
             <Link to={"/register"} className="text-blue-600 hover:underline">
-              Sign up
+              Sign Up
             </Link>
           </motion.p>
           <motion.p
@@ -147,8 +165,11 @@ const LoginPage = () => {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="text-gray-600 mt-2"
           >
-            <Link to={"/reset-password"} className="text-blue-600 hover:underline">
-              Forgot password?
+            <Link
+              to={"/reset-password"}
+              className="text-blue-600 hover:underline"
+            >
+              Forgot Password?
             </Link>
           </motion.p>
         </CardFooter>
